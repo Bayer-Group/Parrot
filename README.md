@@ -45,3 +45,10 @@ class MockClass: ClassProtocol {
 }
 ```
 - When your test target builds, a mock will be generated before compile time
+
+### Non-Basic and Custom Types:
+- If you use types like `UUID` or `Date` you'll see that Parrot doesn't know how to generate instantiations for these types or any of your custom classes and structs. It will just leave placeholders in generated mocks. `parrot-defaults.swift` is the solution for telling Parrot how to instantiate types it wouldn't otherwise know how to create.
+- Add a file called `parrot-defaults.swift` to the base of your test directory. 
+- Each line can teach parrot how to instantiate a type by defining a variable with an explicitly named type and then proceeding to instantiate that type. (e.g. `let parrotUUID: UUID = UUID()`, "let anyCustomType: CustomType = CustomType()")
+- Parrot will always check this list first before generating a mock so if you want to override some of the defaults for basics types, you can do that as well. `let newIntDefaultValue: Int = 1` will make all `Int` types instantiate to 1 instead of 0 in your mocks.
+- Friendly Reminder: Don't forget to have appropriate import statements both in `parrot-defaults.swift` and your mocks. 
