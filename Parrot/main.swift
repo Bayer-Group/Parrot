@@ -1,4 +1,3 @@
-
 import Foundation
 
 func main() {
@@ -24,6 +23,11 @@ func main() {
     else {
         displayUsage()
         exit(1)
+    }
+    
+    if let customTypesExamplesFile = implementationFiles.first(where:  { $0.url.absoluteString.contains("CustomTypesExamples") }) {
+//        swiftSyntax(file: customTypesExamplesFile)
+        sourceKittenAttempt(file: customTypesExamplesFile)
     }
     
     let mockEntities = MockParser.mockEntities(in: testFiles)

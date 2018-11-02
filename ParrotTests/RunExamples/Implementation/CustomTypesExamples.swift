@@ -1,4 +1,4 @@
-protocol CustomProtocol: class {
+protocol CustomProtocol: class, TheWrongProtocol {
     var customThing: Custom { get }
     var customProtocolThingGetSet: CustomProtocol { get set }
     var customThingGetSet: Custom { get set }
