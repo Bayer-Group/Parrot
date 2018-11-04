@@ -78,29 +78,66 @@ class VariableParserTests: XCTestCase {
         XCTAssertEqual(result.defaultReturnValue, "nil")
     }
     
-    // TODO: Support Dictionaries as return values for variables
+    // MARK: - Dictionary Variables
     
-//    func testWhenVarWithDictionaryReturnIsPassed_ThenCorrectVariableIsCreated() {
-//        let declaration = "var myDict : [Int:String] {  get  } "
-//        guard let result = Variable.from(declaration: declaration) else { XCTFail(); return }
-//
-//        XCTAssertEqual(result.name, "myDict")
-//        XCTAssertEqual(result.type, "[Int:String]")
-//        XCTAssertEqual(result.isWeak, false)
-//        XCTAssertEqual(result.isGetSet, false)
-//        XCTAssertEqual(result.defaultReturnValue, "[:]")
-//    }
-//
-//    func testWhenVarWithOptionalDictionaryReturnIsPassed_ThenCorrectVariableIsCreated() {
-//        let declaration = "var myDict : [Int:Double]? {  get  } "
-//        guard let result = Variable.from(declaration: declaration) else { XCTFail(); return }
-//
-//        XCTAssertEqual(result.name, "myDict")
-//        XCTAssertEqual(result.type, "[Int:Double]")
-//        XCTAssertEqual(result.isWeak, false)
-//        XCTAssertEqual(result.isGetSet, false)
-//        XCTAssertEqual(result.defaultReturnValue, "nil")
-//    }
+    func testWhenVarWithDictionaryReturnIsPassed_ThenCorrectVariableIsCreated() {
+        let declaration = "var myDict: [Int: String] { get } "
+        
+        guard let result = Variable.from(declaration: declaration, defaultsTable: [:]) else { XCTFail(); return }
+
+        XCTAssertEqual(result.name, "myDict")
+        XCTAssertEqual(result.type, "[Int: String]")
+        XCTAssertEqual(result.isWeak, false)
+        XCTAssertEqual(result.isGetSet, false)
+        XCTAssertEqual(result.defaultReturnValue, "[:]")
+    }
+    
+    func testWhenVarWithDictionaryReturnIsPassed_GetSet_ThenCorrectVariableIsCreated() {
+        let declaration = "var myDict: [Int: String] { get set } "
+        
+        guard let result = Variable.from(declaration: declaration, defaultsTable: [:]) else { XCTFail(); return }
+        
+        XCTAssertEqual(result.name, "myDict")
+        XCTAssertEqual(result.type, "[Int: String]")
+        XCTAssertEqual(result.isWeak, false)
+        XCTAssertEqual(result.isGetSet, true)
+        XCTAssertEqual(result.defaultReturnValue, "[:]")
+    }
+    
+    func testWhenVarWithDictionaryReturnIsPassed_Weak_ThenCorrectVariableIsCreated() {
+        let declaration = "weak var myDict: [Int: String] { get } "
+        
+        guard let result = Variable.from(declaration: declaration, defaultsTable: [:]) else { XCTFail(); return }
+        
+        XCTAssertEqual(result.name, "myDict")
+        XCTAssertEqual(result.type, "[Int: String]")
+        XCTAssertEqual(result.isWeak, true)
+        XCTAssertEqual(result.isGetSet, false)
+        XCTAssertEqual(result.defaultReturnValue, "[:]")
+    }
+    
+    func testWhenVarWithOptionalDictionaryReturnIsPassed_GetSet_Weak_ThenCorrectVariableIsCreated() {
+        let declaration = "weak var myDict: [Int: String]? { get set } "
+        
+        guard let result = Variable.from(declaration: declaration, defaultsTable: [:]) else { XCTFail(); return }
+        
+        XCTAssertEqual(result.name, "myDict")
+        XCTAssertEqual(result.type, "[Int: String]?")
+        XCTAssertEqual(result.isWeak, true)
+        XCTAssertEqual(result.isGetSet, true)
+        XCTAssertEqual(result.defaultReturnValue, "nil")
+    }
+
+    func testWhenVarWithOptionalDictionaryReturnIsPassed_ThenCorrectVariableIsCreated() {
+        let declaration = "var myDict : [Int:Double]? {  get  } "
+        guard let result = Variable.from(declaration: declaration, defaultsTable: [:]) else { XCTFail(); return }
+
+        XCTAssertEqual(result.name, "myDict")
+        XCTAssertEqual(result.type, "[Int:Double]?")
+        XCTAssertEqual(result.isWeak, false)
+        XCTAssertEqual(result.isGetSet, false)
+        XCTAssertEqual(result.defaultReturnValue, "nil")
+    }
     
     func testWhenVarWithSetReturnIsPassed_ThenCorrectVariableIsCreated() {
         let declaration = "var mySet: Set<Int> {  get  } "

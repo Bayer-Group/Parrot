@@ -3,7 +3,10 @@
 class MockSimpleDictionaryExamples: DictionaryExamples {
 
 	final class Stub {
-		
+		var varGetDictionaryCallCount = 0
+		var varGetDictionaryShouldReturn: [String: String] = [:]
+		var varGetSetDictionaryCallCount = 0
+		var varGetSetDictionaryShouldReturn: [String: String] = [:]
 		var testDictionarySimpleCallCount = 0
 		var testDictionarySimpleCalledWith = [[String: Any]]()
 		var testDictionaryReturnSimpleCallCount = 0
@@ -17,6 +20,21 @@ class MockSimpleDictionaryExamples: DictionaryExamples {
 	}
 
 	var stub = Stub()
+
+	var varGetSetDictionary: [String: String] {
+		get {
+			stub.varGetSetDictionaryCallCount += 1
+			return stub.varGetSetDictionaryShouldReturn
+		}
+		set {
+			stub.varGetSetDictionaryShouldReturn = newValue
+		}
+	}
+
+	var varGetDictionary: [String: String] {
+		stub.varGetDictionaryCallCount += 1
+		return stub.varGetDictionaryShouldReturn
+	}
 
 	func testDictionarySimple(myDictionary: [String: Any]) {
 		stub.testDictionarySimpleCallCount += 1

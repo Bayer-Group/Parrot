@@ -16,9 +16,9 @@ final class MockModel: SomeProtocol {
 		var mySetOfDoublesGetCallCount = 0
 		var mySetOfDoublesGetShouldReturn: Set<Double> = []
 		var myWeakGetCallCount = 0
-		var myWeakGetShouldReturn: AmazingClass? = nil
+		var myWeakGetShouldReturn: AmazingClass?
 		var myWeakGetSetCallCount = 0
-		var myWeakGetSetShouldReturn: AmazingClass? = nil
+		var myWeakGetSetShouldReturn: AmazingClass?
 		var myBasicFuncCallCount = 0
 		var myBasicFuncTwoCallCount = 0
 		var myBasicFuncTwoCalledWith = [String]()
