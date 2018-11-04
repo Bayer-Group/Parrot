@@ -104,4 +104,14 @@ class VariableGeneratorTests: XCTestCase {
         XCTAssertEqual(result, ["var \(expectedVariableName)CallCount = 0",
             "var \(expectedVariableName)ShouldReturn: \(expectedVariableType) = <#Default return value#>"])
     }
+    
+    func testStubEntities_WhenOptionalVariable_ThenNoAssignmentStatement() {
+        let expectedVariableType = "String?"
+        let testVariable = Variable(name: expectedVariableName, type: expectedVariableType, defaultReturnValue: KnownType.from(declaration: expectedVariableType)?.defaultReturnValue, isGetSet: false, isWeak: false)
+        
+        let result = testVariable.stubEntries
+        
+        XCTAssertEqual(result, ["var \(expectedVariableName)CallCount = 0",
+            "var \(expectedVariableName)ShouldReturn: \(expectedVariableType)"])
+    }
 }

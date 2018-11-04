@@ -1,4 +1,6 @@
 protocol DictionaryExamples {
+    var varGetDictionary: [String: String] { get }
+    var varGetSetDictionary: [String: String] { get set }
     func testDictionarySimple(myDictionary: [String: Any])
     func testDictionaryReturnSimple() -> [String: Any]
     func testDictionaryDictionaryArgAndReturn(my dictionary: [String: [String]]) -> [Int: [Int]]

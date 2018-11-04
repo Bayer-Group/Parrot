@@ -26,3 +26,20 @@ protocol SomeProtocol: class {
 struct AmazingStruct {
     // I'm boring
 }
+
+protocol SomeOptionalThings {
+    var myVariable: String? { get }
+    var myGetSet: String? { get set }
+    
+    var myArrayGet: [String]? { get }
+    var myArrayGetOptionalElement: [String?] { get }
+    var myDictionaryGet: [String: String]? { get }
+    var myDictionaryGetOptionalValue: [String: String?] { get }
+    var myDictionaryGetOptionalValueAndSelf: [String: String?]? { get }
+    var mySetOfDoublesGet: Set<Double>? { get }
+    var mySetOfDoublesGetOptionalElement: Set<Double?> { get }
+    
+    weak var myWeakGet: AmazingClass? { get }
+    weak var myWeakGetSet: AmazingClass? { get set }
+    
+}

@@ -29,10 +29,17 @@ extension Variable {
     }
     
     var stubEntries: [String] {
-        let returnValue = self.defaultReturnValue ?? "<#Default return value#>"
+        let assignmentText = " = "
+        let returnValue: String
+        if let defaultReturnValue = self.defaultReturnValue {
+            returnValue = defaultReturnValue != "nil" ? "\(assignmentText)\(defaultReturnValue)" : ""
+        } else {
+            returnValue = "\(assignmentText)<#Default return value#>"
+        }
+        
         return [
             "var \(name)CallCount = 0",
-            "var \(name)ShouldReturn: \(type) = \(returnValue)"
+            "var \(name)ShouldReturn: \(type)\(returnValue)"
         ]
     }
     
