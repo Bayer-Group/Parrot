@@ -32,8 +32,25 @@ final class MockModel: SomeProtocol {
 
 	var stub = Stub()
 
-	var myGetSet: String = ""
-	weak var myWeakGetSet: AmazingClass? = nil
+	var myGetSet: String {
+		get {
+			stub.myGetSetCallCount += 1
+			return stub.myGetSetShouldReturn
+		}
+		set {
+			stub.myGetSetShouldReturn = newValue
+		}
+	}
+
+	weak var myWeakGetSet: AmazingClass? {
+		get {
+			stub.myWeakGetSetCallCount += 1
+			return stub.myWeakGetSetShouldReturn
+		}
+		set {
+			stub.myWeakGetSetShouldReturn = newValue
+		}
+	}
 
 	var mySetOfDoublesGet: Set<Double> {
 		stub.mySetOfDoublesGetCallCount += 1

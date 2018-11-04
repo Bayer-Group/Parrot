@@ -16,7 +16,9 @@ struct MockGenerator {
         let getSetVariables = protocolEntity.variables.filter { $0.isGetSet } .sorted { lhs, rhs in return !lhs.isWeak }
         let getVariables = protocolEntity.variables.filter { !$0.isGetSet } .sorted { lhs, rhs in return !lhs.isWeak }
         
-        let formattedGetSetVariables = getSetVariables.map { return "\t" + $0.mockImplementationLines.joined() }.joined(separator: "\n")
+        let formattedGetSetVariables = getSetVariables.map { getSetVariable in
+            return formattedGetSetVariable(mockImplementationLines: getSetVariable.mockImplementationLines)
+        }.joined(separator: "\n\n")
         
         let formattedGetVariables = getVariables.map { (variable) -> String in
             return variable.mockImplementationLines.enumerated().reduce("") { result, lineEnumeration in
@@ -58,5 +60,25 @@ struct MockGenerator {
         """
         
         return newMock
+    }
+    
+    static func formattedGetSetVariable(mockImplementationLines: [String]) -> String {
+        return mockImplementationLines.enumerated()
+            .map { index, line in
+                let isFirstOrLastLine = index == 0 || index == mockImplementationLines.count - 1
+                let isGetOrSetDefinition = line.hasPrefix("get") || line.hasPrefix("set") || line.hasPrefix("}")
+                
+                let indentation: String
+                if isFirstOrLastLine {
+                    indentation = "\t"
+                } else if isGetOrSetDefinition {
+                    indentation = "\t\t"
+                } else {
+                    indentation = "\t\t\t"
+                }
+                
+                return "\(indentation)\(line)"
+            }
+            .joined(separator: "\n")
     }
 }
