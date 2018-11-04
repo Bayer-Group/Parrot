@@ -12,6 +12,7 @@
 		9F1555EF20B84D5B0032CB9E /* MapForDuplicateFunctionNamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1555EE20B84D5B0032CB9E /* MapForDuplicateFunctionNamesTests.swift */; };
 		9F209C0B20937E9D00847DDF /* StringIndexExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F209C0920937D2F00847DDF /* StringIndexExtensions.swift */; };
 		9F211E5E1FC4ABDE003352DC /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37BAE201FBFA8B600EA8A91 /* DataStructures.swift */; };
+		9F2FD5AC218FAA77008DFD67 /* MockSomeOptionalThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */; };
 		9F8168412096BD6300C4B8D7 /* DictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168402096BD6300C4B8D7 /* DictionaryExamples.swift */; };
 		9F8168432096BF4E00C4B8D7 /* MockDictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168422096BF4E00C4B8D7 /* MockDictionaryExamples.swift */; };
 		9F8168452096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */; };
@@ -91,6 +92,7 @@
 		9F0B7ADA209354810029DAD9 /* MockExampleDataFetchWithMultipleCompletionParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExampleDataFetchWithMultipleCompletionParameters.swift; sourceTree = "<group>"; };
 		9F1555EE20B84D5B0032CB9E /* MapForDuplicateFunctionNamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapForDuplicateFunctionNamesTests.swift; sourceTree = "<group>"; };
 		9F209C0920937D2F00847DDF /* StringIndexExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringIndexExtensions.swift; sourceTree = "<group>"; };
+		9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSomeOptionalThings.swift; sourceTree = "<group>"; };
 		9F8168402096BD6300C4B8D7 /* DictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExamples.swift; sourceTree = "<group>"; };
 		9F8168422096BF4E00C4B8D7 /* MockDictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDictionaryExamples.swift; sourceTree = "<group>"; };
 		9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComplexDictionaryExamples.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				9F8168422096BF4E00C4B8D7 /* MockDictionaryExamples.swift */,
 				9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */,
 				9F81684E20980D6000C4B8D7 /* MockOverloadedFunctionsExample.swift */,
+				9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				9F8F00CF2040DA000030B39B /* parrot-defaults.swift in Sources */,
 				9F8F00C32040D2150030B39B /* CompletionExamples.swift in Sources */,
 				9F211E5E1FC4ABDE003352DC /* DataStructures.swift in Sources */,
+				9F2FD5AC218FAA77008DFD67 /* MockSomeOptionalThings.swift in Sources */,
 				F37BAE141FBFA0AC00EA8A91 /* FileOperations.swift in Sources */,
 				F36CDCC61FCD04A20075360E /* MockGenerator.swift in Sources */,
 				9FF6C7DF2093C9C70026D72E /* ArrayExtensions.swift in Sources */,
