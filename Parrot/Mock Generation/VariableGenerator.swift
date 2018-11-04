@@ -5,10 +5,19 @@ extension Variable {
     
     var mockImplementationLines: [String] {
         let weakModifier = isWeak ? "weak " : ""
-        let returnValue = self.defaultReturnValue ?? "<#Default return value#>"
         
         if isGetSet {
-            return ["\(weakModifier)var \(name): \(type) = \(returnValue)"]
+            return [
+                "\(weakModifier)var \(name): \(type) {",
+                "get {",
+                "stub.\(name)CallCount += 1",
+                "return stub.\(name)ShouldReturn",
+                "}",
+                "set {",
+                "stub.\(name)ShouldReturn = newValue",
+                "}",
+                "}"
+            ]
         }
         
         return [

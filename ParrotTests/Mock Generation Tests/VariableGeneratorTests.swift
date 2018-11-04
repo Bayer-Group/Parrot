@@ -35,18 +35,44 @@ class VariableGeneratorTests: XCTestCase {
         XCTAssertFalse(result.hasPrefix("weak"))
     }
     
-    func testMockImplementationLines_WhenIsGetSet_AndHasDefaultReturnValue_ThenResultContainsDefaultReturnValue() {
-        let testVariable = Variable(name: expectedVariableName, type: expectedVariableType, defaultReturnValue: expectedReturnValue, isGetSet: true, isWeak: false)
-        guard let result = testVariable.mockImplementationLines.element(at: 0) else { XCTFail(); return }
+    func testMockImplementationLines_WhenIsGetSet_ThenHasSeparateGetSetDefinitions() {
+        let testVariable = Variable(name: expectedVariableName, type: expectedVariableType, defaultReturnValue: nil, isGetSet: true, isWeak: false)
         
-        XCTAssertTrue(result.hasSuffix(expectedReturnValue))
+        let result = testVariable.mockImplementationLines
+        
+        let expectedResult = [
+            "var \(expectedVariableName): \(expectedVariableType) {",
+            "get {",
+            "stub.\(expectedVariableName)CallCount += 1",
+            "return stub.\(expectedVariableName)ShouldReturn",
+            "}",
+            "set {",
+            "stub.\(expectedVariableName)ShouldReturn = newValue",
+            "}",
+            "}"
+        ]
+        
+        XCTAssertEqual(result, expectedResult)
     }
     
-    func testMockImplementationLines_WhenIsGetSet_AndDoesNotHaveDefaultReturnValue_ThenResultDoesNotContainDefaultReturnValue() {
-        let testVariable = Variable(name: expectedVariableName, type: expectedVariableType, defaultReturnValue: nil, isGetSet: true, isWeak: false)
-        guard let result = testVariable.mockImplementationLines.element(at: 0) else { XCTFail(); return }
+    func testMockImplementationLines_WhenIsWeakGetSet_ThenHasSeparateGetSetDefinitionsWithWeakPrefix() {
+        let testVariable = Variable(name: expectedVariableName, type: expectedVariableType, defaultReturnValue: nil, isGetSet: true, isWeak: true)
         
-        XCTAssertEqual(result, "var \(expectedVariableName): \(expectedVariableType) = <#Default return value#>")
+        let result = testVariable.mockImplementationLines
+        
+        let expectedResult = [
+            "weak var \(expectedVariableName): \(expectedVariableType) {",
+            "get {",
+            "stub.\(expectedVariableName)CallCount += 1",
+            "return stub.\(expectedVariableName)ShouldReturn",
+            "}",
+            "set {",
+            "stub.\(expectedVariableName)ShouldReturn = newValue",
+            "}",
+            "}"
+        ]
+        
+        XCTAssertEqual(result, expectedResult)
     }
     
     func testMockImplementationLines_WhenIsNotGetSet_ThenResultIsComputedVariable() {

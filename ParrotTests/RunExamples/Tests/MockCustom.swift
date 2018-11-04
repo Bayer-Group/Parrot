@@ -19,8 +19,25 @@ class MockCustom: CustomProtocol {
 
 	var stub = Stub()
 
-	var customThingGetSet: Custom = Custom(propertyString: "", propertyInt: 0)
-	var customProtocolThingGetSet: CustomProtocol = Custom(propertyString: "protocol", propertyInt: 1)
+	var customThingGetSet: Custom {
+		get {
+			stub.customThingGetSetCallCount += 1
+			return stub.customThingGetSetShouldReturn
+		}
+		set {
+			stub.customThingGetSetShouldReturn = newValue
+		}
+	}
+
+	var customProtocolThingGetSet: CustomProtocol {
+		get {
+			stub.customProtocolThingGetSetCallCount += 1
+			return stub.customProtocolThingGetSetShouldReturn
+		}
+		set {
+			stub.customProtocolThingGetSetShouldReturn = newValue
+		}
+	}
 
 	var customProtocolThing: CustomProtocol {
 		stub.customProtocolThingCallCount += 1
