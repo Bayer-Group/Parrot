@@ -3,10 +3,6 @@
 final class MockSomeOptionalThings: SomeOptionalThings {
 
 	final class Stub {
-		var myVariableCallCount = 0
-		var myVariableShouldReturn: String?
-		var myGetSetCallCount = 0
-		var myGetSetShouldReturn: String?
 		var myArrayGetCallCount = 0
 		var myArrayGetShouldReturn: [String]?
 		var myArrayGetOptionalElementCallCount = 0
@@ -17,10 +13,14 @@ final class MockSomeOptionalThings: SomeOptionalThings {
 		var myDictionaryGetOptionalValueShouldReturn: [String: String?] = [:]
 		var myDictionaryGetOptionalValueAndSelfCallCount = 0
 		var myDictionaryGetOptionalValueAndSelfShouldReturn: [String: String?]?
+		var myGetSetCallCount = 0
+		var myGetSetShouldReturn: String?
 		var mySetOfDoublesGetCallCount = 0
 		var mySetOfDoublesGetShouldReturn: Set<Double>?
 		var mySetOfDoublesGetOptionalElementCallCount = 0
 		var mySetOfDoublesGetOptionalElementShouldReturn: Set<Double?> = []
+		var myVariableCallCount = 0
+		var myVariableShouldReturn: String?
 		var myWeakGetCallCount = 0
 		var myWeakGetShouldReturn: AmazingClass?
 		var myWeakGetSetCallCount = 0
@@ -48,6 +48,11 @@ final class MockSomeOptionalThings: SomeOptionalThings {
 		set {
 			stub.myWeakGetSetShouldReturn = newValue
 		}
+	}
+
+	var myVariable: String? {
+		stub.myVariableCallCount += 1
+		return stub.myVariableShouldReturn
 	}
 
 	var mySetOfDoublesGetOptionalElement: Set<Double?> {
@@ -83,11 +88,6 @@ final class MockSomeOptionalThings: SomeOptionalThings {
 	var myArrayGet: [String]? {
 		stub.myArrayGetCallCount += 1
 		return stub.myArrayGetShouldReturn
-	}
-
-	var myVariable: String? {
-		stub.myVariableCallCount += 1
-		return stub.myVariableShouldReturn
 	}
 
 	weak var myWeakGet: AmazingClass? {

@@ -25,7 +25,7 @@ struct ProtocolEntity {
     let functions: [Function]
 }
 
-struct Variable {
+struct Variable: Hashable {
     let name: String
     let type: String
     let defaultReturnValue: String?
@@ -33,7 +33,7 @@ struct Variable {
     let isWeak: Bool
 }
 
-struct Function: Equatable {
+struct Function: Hashable {
     let name: String
     let baseStubMemberName: String
     let returnType: String?
@@ -49,7 +49,7 @@ struct Function: Equatable {
     }
 }
 
-struct Argument: Equatable {
+struct Argument: Hashable {
     let name: String
     let type: String
     let externalName: String?
