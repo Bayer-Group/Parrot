@@ -13,6 +13,10 @@
 		9F209C0B20937E9D00847DDF /* StringIndexExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F209C0920937D2F00847DDF /* StringIndexExtensions.swift */; };
 		9F211E5E1FC4ABDE003352DC /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37BAE201FBFA8B600EA8A91 /* DataStructures.swift */; };
 		9F2FD5AC218FAA77008DFD67 /* MockSomeOptionalThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */; };
+		9F2FD5AE218FB7C4008DFD67 /* CompositionExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5AD218FB7C4008DFD67 /* CompositionExamples.swift */; };
+		9F2FD5B0218FB83F008DFD67 /* MockMyConformingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5AF218FB83F008DFD67 /* MockMyConformingProtocol.swift */; };
+		9F2FD5B2218FCD96008DFD67 /* MockNestedConformingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5B1218FCD96008DFD67 /* MockNestedConformingProtocol.swift */; };
+		9F2FD5B4218FFB65008DFD67 /* MockMySecondConformingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FD5B3218FFB65008DFD67 /* MockMySecondConformingProtocol.swift */; };
 		9F8168412096BD6300C4B8D7 /* DictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168402096BD6300C4B8D7 /* DictionaryExamples.swift */; };
 		9F8168432096BF4E00C4B8D7 /* MockDictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168422096BF4E00C4B8D7 /* MockDictionaryExamples.swift */; };
 		9F8168452096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */; };
@@ -93,6 +97,10 @@
 		9F1555EE20B84D5B0032CB9E /* MapForDuplicateFunctionNamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapForDuplicateFunctionNamesTests.swift; sourceTree = "<group>"; };
 		9F209C0920937D2F00847DDF /* StringIndexExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringIndexExtensions.swift; sourceTree = "<group>"; };
 		9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSomeOptionalThings.swift; sourceTree = "<group>"; };
+		9F2FD5AD218FB7C4008DFD67 /* CompositionExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionExamples.swift; sourceTree = "<group>"; };
+		9F2FD5AF218FB83F008DFD67 /* MockMyConformingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMyConformingProtocol.swift; sourceTree = "<group>"; };
+		9F2FD5B1218FCD96008DFD67 /* MockNestedConformingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNestedConformingProtocol.swift; sourceTree = "<group>"; };
+		9F2FD5B3218FFB65008DFD67 /* MockMySecondConformingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMySecondConformingProtocol.swift; sourceTree = "<group>"; };
 		9F8168402096BD6300C4B8D7 /* DictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExamples.swift; sourceTree = "<group>"; };
 		9F8168422096BF4E00C4B8D7 /* MockDictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDictionaryExamples.swift; sourceTree = "<group>"; };
 		9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComplexDictionaryExamples.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 				9F8F00D02040DA2E0030B39B /* CustomTypesExamples.swift */,
 				9F8168402096BD6300C4B8D7 /* DictionaryExamples.swift */,
 				9F81684C20980D1200C4B8D7 /* OverloadedFunctionsExample.swift */,
+				9F2FD5AD218FB7C4008DFD67 /* CompositionExamples.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -194,6 +203,9 @@
 				9F8168442096BF5E00C4B8D7 /* MockComplexDictionaryExamples.swift */,
 				9F81684E20980D6000C4B8D7 /* MockOverloadedFunctionsExample.swift */,
 				9F2FD5AB218FAA77008DFD67 /* MockSomeOptionalThings.swift */,
+				9F2FD5AF218FB83F008DFD67 /* MockMyConformingProtocol.swift */,
+				9F2FD5B1218FCD96008DFD67 /* MockNestedConformingProtocol.swift */,
+				9F2FD5B3218FFB65008DFD67 /* MockMySecondConformingProtocol.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -466,12 +478,15 @@
 				F36CDCC31FCD04600075360E /* VariableParserTests.swift in Sources */,
 				F37BAE181FBFA0B500EA8A91 /* FileManagerExtensions.swift in Sources */,
 				9F9A26EC20408DE6001034E4 /* ArgumentParsingTests.swift in Sources */,
+				9F2FD5B2218FCD96008DFD67 /* MockNestedConformingProtocol.swift in Sources */,
 				F38A45FF1FC8DCB50032162D /* BasicExamplesToCover.swift in Sources */,
 				9F8F00CF2040DA000030B39B /* parrot-defaults.swift in Sources */,
 				9F8F00C32040D2150030B39B /* CompletionExamples.swift in Sources */,
+				9F2FD5AE218FB7C4008DFD67 /* CompositionExamples.swift in Sources */,
 				9F211E5E1FC4ABDE003352DC /* DataStructures.swift in Sources */,
 				9F2FD5AC218FAA77008DFD67 /* MockSomeOptionalThings.swift in Sources */,
 				F37BAE141FBFA0AC00EA8A91 /* FileOperations.swift in Sources */,
+				9F2FD5B4218FFB65008DFD67 /* MockMySecondConformingProtocol.swift in Sources */,
 				F36CDCC61FCD04A20075360E /* MockGenerator.swift in Sources */,
 				9FF6C7DF2093C9C70026D72E /* ArrayExtensions.swift in Sources */,
 				9FF6C7DE2093C9C00026D72E /* EnclosingCharacter.swift in Sources */,
@@ -482,6 +497,7 @@
 				F34AD6F01FD32D3000630F4C /* FunctionGeneratorTests.swift in Sources */,
 				9F8F00D12040DA2E0030B39B /* CustomTypesExamples.swift in Sources */,
 				F36CDCC51FCD049F0075360E /* FunctionParser.swift in Sources */,
+				9F2FD5B0218FB83F008DFD67 /* MockMyConformingProtocol.swift in Sources */,
 				9F8F00C72040D2510030B39B /* MockExampleDataFetcherWithOtherParameter.swift in Sources */,
 				9F209C0B20937E9D00847DDF /* StringIndexExtensions.swift in Sources */,
 				1AB9403B201BB68400383019 /* StringExtensionTests.swift in Sources */,
