@@ -7,6 +7,7 @@ protocol TheWrongProtocol {
 
 }
 
+// TODO: Check that the weak vars still work
 protocol SomeProtocol: class {
     var myVariable: String { get }
     var myGetSet: String { get set }
@@ -14,8 +15,8 @@ protocol SomeProtocol: class {
     var myArrayGet: [String] { get }
     var mySetOfDoublesGet: Set<Double> { get }
     
-    weak var myWeakGet: AmazingClass? { get }
-    weak var myWeakGetSet: AmazingClass? { get set }
+    var myWeakGet: AmazingClass? { get }
+    var myWeakGetSet: AmazingClass? { get set }
     
     func myBasicFunc()
     func myBasicFuncTwo(name: String) -> Int
@@ -39,7 +40,7 @@ protocol SomeOptionalThings {
     var mySetOfDoublesGet: Set<Double>? { get }
     var mySetOfDoublesGetOptionalElement: Set<Double?> { get }
     
-    weak var myWeakGet: AmazingClass? { get }
-    weak var myWeakGetSet: AmazingClass? { get set }
+    var myWeakGet: AmazingClass? { get }
+    var myWeakGetSet: AmazingClass? { get set }
     
 }

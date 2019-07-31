@@ -19,6 +19,10 @@ class MockCustom: CustomProtocol {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	var customThingGetSet: Custom {
 		get {
 			stub.customThingGetSetCallCount += 1

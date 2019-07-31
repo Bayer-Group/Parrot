@@ -21,6 +21,10 @@ class MockSimpleDictionaryExamples: DictionaryExamples {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	var varGetSetDictionary: [String: String] {
 		get {
 			stub.varGetSetDictionaryCallCount += 1

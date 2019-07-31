@@ -90,7 +90,7 @@ extension String {
         var separatorIndexes = [String.Index]()
         var currentSubString: Substring = Substring(self)
         
-        while let enclosingCharacterIndex = currentSubString.index(of: ",") {
+        while let enclosingCharacterIndex = currentSubString.firstIndex(of: ",") {
             
             if enclosingCharacterIndex.isNotContainedIn(ranges: ranges) {
                 separatorIndexes.append(enclosingCharacterIndex)

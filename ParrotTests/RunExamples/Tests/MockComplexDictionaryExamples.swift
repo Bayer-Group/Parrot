@@ -14,6 +14,10 @@ class MockComplexDictionaryExmaples: ComplexDictionaryExamples {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	func testCompletionAndDictionary(parameters: [String: String], completion: @escaping (String?, String?) -> ()) -> [String: Any]? {
 		stub.testCompletionAndDictionaryCallCount += 1
 		stub.testCompletionAndDictionaryCalledWith.append((parameters, completion))

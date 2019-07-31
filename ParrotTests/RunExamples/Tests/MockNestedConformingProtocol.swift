@@ -11,6 +11,10 @@ final class MockNestedConformingProtocol: NestedConformingProtocol {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	var myString: String {
 		stub.myStringCallCount += 1
 		return stub.myStringShouldReturn

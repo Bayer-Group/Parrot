@@ -31,7 +31,7 @@ struct Log {
     }
     
     private static func name(fromFunctionString string: String) -> String {
-        if let index = string.index(of: "(") {
+        if let index = string.firstIndex(of: "(") {
             return "\(String(string[..<index]))()"
         }
         return string
