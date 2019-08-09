@@ -55,6 +55,10 @@ struct MockGenerator {
         
         \tvar stub = Stub()
         
+        \tfunc parrotResetMock() {
+        \t\tstub = Stub()
+        \t}
+        
         \(formattedGetSetVariables.isEmpty ? "" : formattedGetSetVariables + "\n\n" )\(formattedGetVariables.isEmpty ? "" : formattedGetVariables + "\n")\(formattedFunctions)
         }
         """

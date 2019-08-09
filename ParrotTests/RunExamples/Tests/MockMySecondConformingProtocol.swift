@@ -20,6 +20,10 @@ final class MockMySecondConformingProtocol: MySecondConformingProtocol {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	var nonDuplicateGetSet: Int {
 		get {
 			stub.nonDuplicateGetSetCallCount += 1

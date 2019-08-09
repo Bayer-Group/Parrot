@@ -32,6 +32,20 @@ final class MockModel: SomeProtocol {
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
+	var myWeakGetSet: AmazingClass? {
+		get {
+			stub.myWeakGetSetCallCount += 1
+			return stub.myWeakGetSetShouldReturn
+		}
+		set {
+			stub.myWeakGetSetShouldReturn = newValue
+		}
+	}
+
 	var myGetSet: String {
 		get {
 			stub.myGetSetCallCount += 1
@@ -42,14 +56,9 @@ final class MockModel: SomeProtocol {
 		}
 	}
 
-	weak var myWeakGetSet: AmazingClass? {
-		get {
-			stub.myWeakGetSetCallCount += 1
-			return stub.myWeakGetSetShouldReturn
-		}
-		set {
-			stub.myWeakGetSetShouldReturn = newValue
-		}
+	var myWeakGet: AmazingClass? {
+		stub.myWeakGetCallCount += 1
+		return stub.myWeakGetShouldReturn
 	}
 
 	var myVariable: String {
@@ -65,11 +74,6 @@ final class MockModel: SomeProtocol {
 	var myArrayGet: [String] {
 		stub.myArrayGetCallCount += 1
 		return stub.myArrayGetShouldReturn
-	}
-
-	weak var myWeakGet: AmazingClass? {
-		stub.myWeakGetCallCount += 1
-		return stub.myWeakGetShouldReturn
 	}
 
 	func myBasicFunc() {

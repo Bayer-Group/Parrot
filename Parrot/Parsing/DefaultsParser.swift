@@ -6,7 +6,7 @@ struct DefaultsParser {
         for line in lines {
             guard line.hasPrefix("let") else { continue }
             
-            guard let colonIndex = line.index(of: ":"), let equalsIndex = line.index(of: "=") else { continue }
+            guard let colonIndex = line.firstIndex(of: ":"), let equalsIndex = line.firstIndex(of: "=") else { continue }
             
             let type = line[colonIndex.indexPlusOne..<equalsIndex].toTrimmedString
             

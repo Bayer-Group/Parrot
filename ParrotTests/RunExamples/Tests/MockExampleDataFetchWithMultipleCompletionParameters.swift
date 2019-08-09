@@ -10,6 +10,10 @@ class MockExampleDataFetcherWithMultipleCompletionParameters: ExampleDataFetcher
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	func fetch(completion: @escaping (String?, String?) -> ()) {
 		stub.fetchCallCount += 1
 		stub.fetchCalledWith.append(completion)

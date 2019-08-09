@@ -10,6 +10,10 @@ class MockExampleDataFetcherWithOtherParameter: ExampleDataFetcherWithOtherParam
 
 	var stub = Stub()
 
+	func parrotResetMock() {
+		stub = Stub()
+	}
+
 	func fetch(options: Bool, completion: @escaping () -> ()) {
 		stub.fetchCallCount += 1
 		stub.fetchCalledWith.append((options, completion))

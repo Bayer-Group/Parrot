@@ -56,7 +56,7 @@ extension Array where Element == Function {
                         switch knownType {
                         case .arrayType: return "ReturnsArrayOf\(functionReturnType.dropFirst().dropLast())s"
                         case .dictionaryType:
-                            let indexOfColon = functionReturnType.index(of: ":")!
+                            let indexOfColon = functionReturnType.firstIndex(of: ":")!
                             return "ReturnsDictionaryOf\(functionReturnType[..<indexOfColon].dropFirst().toTrimmedString)To\(functionReturnType[indexOfColon...].dropFirst().dropLast().toTrimmedString)"
 
                         case .optionalType: return "ReturnsOptional\(functionReturnType.dropLast())"

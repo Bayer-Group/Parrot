@@ -36,4 +36,18 @@ class MockGeneratorTests: XCTestCase {
         
         XCTAssertEqual(MockGenerator.formattedGetSetVariable(mockImplementationLines: mockImplementationLines), expectedFormat)
     }
+    
+    func testFileContents_IncludesAResetMockFunction() {
+        let mockFile = File(url: URL(fileURLWithPath: ""), lines: ["protocol Test {", "}", "//@@parrot-mock", "class TestClass: Test {", "}"])
+        let mockMockEntity = MockEntity(file: mockFile, headers: [], type: "Test", name: "TestClass", protocolName: "Test")
+        let mockProtocolEntity = ProtocolEntity(file: mockFile, name: "Test", variables: [], functions: [])
+        
+        let expectedStubReset = """
+        \tfunc parrotResetMock() {
+        \t\tstub = Stub()
+        \t}
+        """
+        let fileContents = MockGenerator.fileContents(from: mockProtocolEntity, for: mockMockEntity)
+        XCTAssertTrue(fileContents.contains(expectedStubReset))
+    }
 }

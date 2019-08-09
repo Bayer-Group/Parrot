@@ -61,9 +61,10 @@ protocol SampleDelegate: class {
     func dataRefreshed()
 }
 
+// TODO: Check that this still works with weak removed
 protocol VariableProtocolWithWeak {
-    weak var weakDelegateGet: SampleDelegate? { get }
-    weak var weakDelegateGetSet: SampleDelegate? { get set }
+    var weakDelegateGet: SampleDelegate? { get }
+    var weakDelegateGetSet: SampleDelegate? { get set }
 }
 
 
